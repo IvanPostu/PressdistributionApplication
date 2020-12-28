@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distribuție a presei</title>
+  <!-- MDB -->
+  <link rel="stylesheet" href="static/mdb/css/mdb.min.css" />
+  <script defer src="static/fontawesome-free-5.15.1-web/js/all.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><b>Distribuție a presei online</b></a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Pagina principală</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Publicități</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Abonarea la publicități</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav float-right">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Autentificare</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <main>
+
+    <th:block th:replace="${content}"></th:block>
+  </main>
+
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">Evidența publicităților și abonamentelor la o firmă de distribuire a presei.</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- MDB -->
+  <script type="text/javascript" src="static/mdb/js/mdb.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+
+  <div class="container my-5">
+    <!-- Carousel wrapper -->
+    <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"></li>
+        <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"></li>
+        <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"></li>
+      </ol>
+
+      <!-- Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item active">
+          <img src="static/images/q3.jpg" class="d-block w-100 h-75" alt="..." />
+          <div class="carousel-caption d-none d-md-block bg-dark">
+            <h5>Evidența publicităților</h5>
+            <p>Pe platforma noastră clienții au posibilitatea de a duce evidența publicităților.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <img src="static/images/q4.jpg" class="d-block w-100 h-75" alt="..." />
+          <div class="carousel-caption d-none d-md-block bg-dark">
+            <h5>Evidența abonamentelor</h5>
+            <p>Pentru anumite categorii de publicități este necesar de procurat abonament.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <img src="static/images/q5.jpg" class="d-block w-100 h-75" alt="..." />
+          <div class="carousel-caption d-none d-md-block bg-dark">
+            <h5>Distribuție a presei</h5>
+            <p>Platforma date permite de a distribui operativ și eficient presa.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#carouselBasicExample" role="button" data-mdb-slide="prev">
+        <span class="">
+          <i class="fas fa-arrow-circle-left"></i>
+        </span>
+      </a>
+      <a class="carousel-control-next" href="#carouselBasicExample" role="button" data-mdb-slide="next">
+        <span class="">
+          <i class="fas fa-arrow-circle-right"></i>
+        </span>
+      </a>
+    </div>
+    <!-- Carousel wrapper -->
+
+    <div class="row mt-5">
+      <h1>Ultimele publicități</h1>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-1">
+      <div class="col">
+        <div class="card">
+          <img src="https://mdbootstrap.com/img/new/standard/city/041.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="https://mdbootstrap.com/img/new/standard/city/042.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="https://mdbootstrap.com/img/new/standard/city/043.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="https://mdbootstrap.com/img/new/standard/city/044.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
