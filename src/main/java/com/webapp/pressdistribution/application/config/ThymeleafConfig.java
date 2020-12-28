@@ -3,10 +3,16 @@ package com.webapp.pressdistribution.application.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 @Configuration
 public class ThymeleafConfig {
+
+  @Bean
+  public SpringSecurityDialect springSecurityDialect(){
+    return new SpringSecurityDialect();
+  }
 
   @Bean
   @Description("Thymeleaf template resolver serving HTML 5")

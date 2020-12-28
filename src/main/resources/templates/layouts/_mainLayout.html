@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Distribuție a presei</title>
   <!-- MDB -->
-  <link rel="stylesheet" href="static/mdb/css/mdb.min.css" />
-  <script defer src="static/fontawesome-free-5.15.1-web/js/all.min.js"></script>
+  <link rel="stylesheet" th:href="@{/static/mdb/css/mdb.min.css}" />
+
+  <script type="text/javascript" th:src="@{/static/turbolinks-5.0/turbolinks.js}"></script>
+
+  <script defer type="text/javascript" th:src="@{/static/fontawesome-free-5.15.1-web/js/all.min.js}"></script>
+  <!-- MDB -->
+  <script defer type="text/javascript" th:src="@{/static/mdb/js/mdb.min.js}"></script>
+
+  <style>
+    .turbolinks-progress-bar {
+      height: 3px;
+      background-color: rgb(23, 141, 145);
+    }
+  </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><b>Distribuție a presei online</b></a>
+      <a class="navbar-brand" href="/"><b>Distribuție a presei online</b></a>
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -33,30 +45,26 @@
         </ul>
         <ul class="navbar-nav float-right">
           <li class="nav-item">
-            <a class="nav-link" href="#">Autentificare</a>
+            <a th:text="(${#authorization.expression('isAuthenticated()')}? 
+            ${#authentication.getPrincipal().getUsername()} : 'Autentificare')" class="nav-link" href="/login"></a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-
-
-  <main>
-
+  <main class="w-100 p-3" style="min-height: 100vh;">
     <th:block th:replace="${content}"></th:block>
   </main>
 
   <footer class="bg-light text-center text-lg-start">
-    <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
       © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">Evidența publicităților și abonamentelor la o firmă de distribuire a presei.</a>
+      <a class="text-dark" href="https://mdbootstrap.com/">Evidența publicităților și abonamentelor la o firmă de
+        distribuire a presei.</a>
     </div>
-    <!-- Copyright -->
   </footer>
-  <!-- MDB -->
-  <script type="text/javascript" src="static/mdb/js/mdb.min.js"></script>
+
 </body>
 
 </html>

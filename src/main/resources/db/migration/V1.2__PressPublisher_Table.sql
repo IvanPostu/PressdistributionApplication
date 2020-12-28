@@ -1,0 +1,11 @@
+
+
+CREATE TABLE publisher (
+  id BIGINT AUTO_INCREMENT NOT NULL,
+  address VARCHAR(256) DEFAULT '',
+  phone VARCHAR(256) DEFAULT '',
+  name VARCHAR(256) DEFAULT '',
+  PRIMARY KEY (id)
+);
+
+

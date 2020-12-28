@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+  <div class="row justify-content-center mt-5 ">
+    <div class="col-md-6">
+      <div class="card border">
+        <h4 class="card-header text-center">Autentificare</h4>
+        <div class="card-body">
+          <form th:action="@{/login}" method="POST">
+
+            <!-- Email input -->
+            <div class="mb-4 mt-4">
+              <input th:name="username" th:value="''" type="email" id="form2Example1" class="form-control" />
+              <label class="form-label" for="form2Example1">Email address</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="mb-4">
+              <input th:name="password" th:value="''" type="password" id="form2Example2" class="form-control" />
+              <label class="form-label" for="form2Example2">Password</label>
+            </div>
+
+            <div class="col-md-6 offset-md-3">
+              <button type="submit" class="btn btn-primary btn-block">
+                Sign in
+              </button>
+            </div>
+
+       
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
