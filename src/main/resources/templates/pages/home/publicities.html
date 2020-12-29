@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+
+  <div class="container my-5">
+    <!-- Carousel wrapper -->
+
+
+    <div class="row mt-5">
+      <h1>Publicități</h1>
+      <a class="btn btn-primary col-md-4" th:href="@{/home/publicities/add}" role="button">Adaugă publicitate</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-1">
+      <th:block th:if="${publishers}">
+        <th:block th:each="item : ${publishers}">
+          <div class="col">
+            <div class="card">
+              <img src="https://mdbootstrap.com/img/new/standard/city/041.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural lead-in to
+                  additional content. This content is a little bit longer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </th:block>
+      </th:block>
+      
+      
+    </div>
+
+  </div>
+
+</section>

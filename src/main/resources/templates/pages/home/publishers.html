@@ -1,0 +1,87 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+
+  <div class="container my-5">
+
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <div th:if="${error}" th:text="${error}" class="alert alert-danger" role="alert">
+        </div>
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="btn btn-primary border" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Adaugare companie editor
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+          data-mdb-parent="#accordionFlushExample">
+          <form th:object="${registerPublisher}" th:action="@{/home/publishers}" class="my-4" method="POST">
+
+            <div class="mb-4 col-md-6">
+              <input th:field="*{name}" type="text" id="form2Example11" class="form-control" />
+              <label class="form-label" for="form2Example11">Denumire companie</label>
+            </div>
+
+            <div class="mb-4 col-md-6">
+              <input th:field="*{email}" type="text" id="form2Example12" class="form-control" />
+              <label class="form-label" for="form2Example12">Email</label>
+            </div>
+
+            <div class="mb-4 col-md-6">
+              <input th:field="*{phone}" type="text" id="form2Example13" class="form-control" />
+              <label class="form-label" for="form2Example13">Telefon</label>
+            </div>
+
+            <div class="mb-4 col-md-6">
+              <input th:field="*{address}" type="text" id="form2Example133" class="form-control" />
+              <label class="form-label" for="form2Example133">Adresa</label>
+            </div>
+
+            <div class="col-md-3">
+              <button type="submit" class="btn btn-primary btn-block">
+                Înregistrare companie
+              </button>
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <h1>Companii editori</h1>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 my-1">
+
+      <th:block th:if="${publishers}">
+        <th:block th:each="item : ${publishers}">
+          <div class="col">
+            <div class="card border">
+              <div class="card-body">
+                <h3 th:text="${item.name}" class="card-title">Card title</h3>
+                <p class="card-text">
+                  <b>Adresa: </b><span th:text="${item.address}"></span>
+                </p>
+                <p class="card-text">
+                  <b>Nr. telefon: </b><span th:text="${item.phone}"></span>
+                </p>
+                <p class="card-text">
+                  <b>Email: </b><span th:text="${item.email}"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </th:block>
+      </th:block>
+
+      
+
+    </div>
+
+  </div>
+
+</section>

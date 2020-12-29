@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+  <div class="row justify-content-center  w-100 p-3">
+    <div class="col-md-10">
+      <div class="card border">
+        <h4 class="card-header text-center">Adaugare publicitate</h4>
+        <div class="card-body">
+          <form th:object="${publicity}" th:action="@{/home/publicities/add}" enctype="multipart/form-data"
+            method="POST">
+
+            <div class="mb-4 mt-4">
+              <input th:field="*{title}" type="text" id="form2Example1" class="form-control" />
+              <label class="form-label" for="form2Example1">Titlu</label>
+            </div>
+
+            <div class="mb-4">
+              <div class="form-floating">
+                <textarea th:field="*{content}" class="form-control" placeholder="" id="floatingTextarea2" style="height: 200px"></textarea>
+                <label for="floatingTextarea2">Text</label>
+              </div>           
+            </div>
+
+            <div class="mb-4">
+              <select th:field="*{publishedId}" class="form-select" aria-label="Default select example">
+                <!-- <option selected>Open this select menu</option> -->
+                <th:block th:if="${publishers}">
+                  <th:block th:each="item : ${publishers}">
+                    <option th:text="${item.name}" th:value="${item.id}"></option>
+                  </th:block>
+                </th:block>
+             
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <input multiple="false" th:field="*{file}" type="file" id="form2Example3" class="form-control" />
+              <label class="form-label" for="form2Example3">Imagine</label>
+            </div>
+
+            <th:block th:if="${errors}">
+              <th:block th:each="item : ${errors}">
+                <div th:text="${item}" class="alert alert-danger" role="alert">
+                </div>
+              </th:block>
+            </th:block>
+
+            <div class="col-md-6 offset-md-3">
+              <button type="submit" class="btn btn-primary btn-block">
+                Adaugare
+              </button>
+            </div>
+
+
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

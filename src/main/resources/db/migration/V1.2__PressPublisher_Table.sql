@@ -5,6 +5,7 @@ CREATE TABLE publisher (
   address VARCHAR(256) DEFAULT '',
   phone VARCHAR(256) DEFAULT '',
   name VARCHAR(256) DEFAULT '',
+  email VARCHAR(256) DEFAULT '',
   PRIMARY KEY (id)
 );
 
