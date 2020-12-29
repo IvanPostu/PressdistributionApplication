@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private UserRoleRepository userRoleRepository;
 
+  @Transactional
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     UserEntity user = userRepository.findByEmail(username);
@@ -38,20 +39,21 @@ public class UserServiceImpl implements UserService {
     UserEntity userEntity = new UserEntity();
     List<UserRoleEntity> roles = new ArrayList<>();
 
-    if(userDTO.isReader()) roles.add(new UserRoleEntity("READER"));
-    if(userDTO.isWriter()) roles.add(new UserRoleEntity("WRITER"));
+    if (userDTO.isWriter())
+      roles.add(new UserRoleEntity("WRITER"));
+    else
+      roles.add(new UserRoleEntity("READER"));
 
     userEntity.setEmail(userDTO.getEmail());
     userEntity.setPassword(userDTO.getPassword());
     userEntity.setActive(true);
-    userEntity.setRoles(roles);
     userRepository.save(userEntity);
 
-    roles.forEach(a -> a.setId(userEntity.getId()));
+    roles.forEach(a -> {
+      a.setId(userEntity.getId());
+      userRoleRepository.save(a);
+    });
 
-    userRoleRepository.saveAll(roles);
-
-    char c = 'a';
   }
 
   @Override
@@ -59,6 +61,5 @@ public class UserServiceImpl implements UserService {
     Optional<UserEntity> userEntity = userRepository.findById(id);
     return userEntity;
   }
-
 
 }

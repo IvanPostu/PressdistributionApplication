@@ -42,7 +42,7 @@ public class UserEntity implements UserDetails {
   private boolean active;
 
   @OneToMany(fetch = FetchType.EAGER)
-  @JoinColumn(name = "id")
+  @JoinColumn(name = "user_id")
   private List<UserRoleEntity> roles = new ArrayList<>();
 
 

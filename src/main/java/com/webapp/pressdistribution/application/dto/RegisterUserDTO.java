@@ -24,6 +24,4 @@ public class RegisterUserDTO {
   private boolean writer;
 
   
-  private boolean reader;
-
 }

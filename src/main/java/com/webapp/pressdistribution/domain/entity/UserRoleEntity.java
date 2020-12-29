@@ -3,16 +3,15 @@ package com.webapp.pressdistribution.domain.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -32,10 +31,6 @@ public class UserRoleEntity implements GrantedAuthority {
   @Column(name = "name")
   private String name;
 
-  @ManyToOne
-  @JoinColumn(name = "id")
-  @MapsId
-  private UserEntity user;
 
   @Override
   public String getAuthority() {

@@ -29,18 +29,15 @@ public class RegisterController {
   public ModelAndView registerPost(RegisterUserDTO registerUser, ModelMap model) {
     List<String> errors = new ArrayList<>();
 
-
-    if(registerUser.isReader() == registerUser.isWriter() && registerUser.isWriter()==false){
-      errors.add("Este necesar de selectat minimum 1 rola pentru utilizator!!!");
-    }
-
-    if (errors.size()>0) {
-      model.addAttribute("registerUser", registerUser);
+    try{
+      userService.addUser(registerUser);
+    }catch(Exception e){
+      errors.add("A apărut eroare!!!");
       model.addAttribute("errors", errors);
+      model.addAttribute("registerUser", registerUser);
+
       return new ModelAndView("pages/auth/register", model);
     }
-
-    userService.addUser(registerUser);
 
     return new ModelAndView("redirect:/login");
   }

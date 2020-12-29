@@ -33,15 +33,18 @@
             </div>
 
             <div class="mb-4">
+              <!-- Default radio -->
               <div class="form-check">
-                <input th:field="*{writer}" class="form-check-input" type="checkbox" id="flexRadioDefault1" />
+                <input value="true" class="form-check-input" type="radio" name="writer" id="flexRadioDefault1" />
                 <label class="form-check-label" for="flexRadioDefault1"> Editor </label>
               </div>
 
+              <!-- Default checked radio -->
               <div class="form-check">
-                <input th:field="*{reader}" class="form-check-input" type="checkbox" id="flexRadioDefault2" checked />
+                <input class="form-check-input" type="radio" name="writer" id="flexRadioDefault2" checked value="false" />
                 <label class="form-check-label" for="flexRadioDefault2"> Cititor </label>
               </div>
+             
             </div>
 
 
