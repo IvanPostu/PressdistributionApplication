@@ -47,6 +47,8 @@ public class UserServiceImpl implements UserService {
     userEntity.setEmail(userDTO.getEmail());
     userEntity.setPassword(userDTO.getPassword());
     userEntity.setActive(true);
+    userEntity.setFirstName(userDTO.getFirstName());
+    userEntity.setLastName(userDTO.getLastName());
     userRepository.save(userEntity);
 
     roles.forEach(a -> {

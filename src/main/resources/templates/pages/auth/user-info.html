@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+  <div class="row justify-content-center mt-5 ">
+    <div class="col-md-6">
+      <div class="card border">
+        <h4 class="card-header text-center">Info despre contul dvs.</h4>
+        <div class="card-body">
+
+          <div class="mb-4 mt-4">
+            <label class="form-label" for="form2Example1">Email: <b th:text="${userInfo.email}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="form2Example1">Nume: <b th:text="${userInfo.firstName}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="form2Example1">Prenume: <b th:text="${userInfo.lastName}"></b></label>
+          </div>
+
+          <form th:action="@{/logout}" method="POST">
+            <button class="btn btn-outline-danger" type="submit">Logout</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

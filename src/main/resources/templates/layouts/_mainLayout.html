@@ -16,7 +16,7 @@
 
   <style>
     .turbolinks-progress-bar {
-      height: 3px;
+      height: 5px;
       background-color: rgb(12, 235, 243);
     }
   </style>
@@ -46,7 +46,8 @@
         <ul class="navbar-nav float-right">
           <li class="nav-item">
             <a th:text="(${#authorization.expression('isAuthenticated()')}? 
-            ${#authentication.getPrincipal().getUsername()} : 'Autentificare')" class="nav-link" href="/login"></a>
+            ${#authentication.getPrincipal().getUsername()} : 'Autentificare')" class="nav-link" th:href="(${#authorization.expression('isAuthenticated()')}? 
+            @{/user/info} : @{/login})"></a>
           </li>
         </ul>
       </div>

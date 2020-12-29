@@ -39,6 +39,12 @@ public class UserEntity implements UserDetails {
 
   private String password;
 
+  @Column(name="firstname")
+  private String firstName;
+  
+  @Column(name="lastname")
+  private String lastName;
+
   private boolean active;
 
   @OneToMany(fetch = FetchType.EAGER)
