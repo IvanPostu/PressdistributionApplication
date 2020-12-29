@@ -5,7 +5,7 @@ CREATE TABLE user_role (
 
 CREATE TABLE app_user (
   id BIGINT AUTO_INCREMENT NOT NULL,
-  active boolean NOT NULL,
+  active boolean NOT NULL UNIQUE,
   email VARCHAR(255),
   password VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
