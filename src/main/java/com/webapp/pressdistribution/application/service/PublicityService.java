@@ -11,5 +11,6 @@ public interface PublicityService {
   List<PublicityEntity> allPublicities();
 
   PublicityEntity getById(Long id);
+  
 
 }

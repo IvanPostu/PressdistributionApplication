@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +34,9 @@ public class PublicityController {
   public ModelAndView publicities(ModelMap model) {
 
     List<PublicityEntity> publicities = publicityService.allPublicities();
+
+    
+
     model.addAttribute("publicities", publicities);
 
     return new ModelAndView("pages/home/publicities", model);
@@ -46,6 +50,28 @@ public class PublicityController {
     model.addAttribute("publicity", new RegisterPublicityDto());
     model.addAttribute("publishers", publisherEntities);
     return new ModelAndView("pages/home/publicity-add", model);
+  }
+
+  @RequestMapping(value = { "/home/publicity/{id}" }, method = RequestMethod.GET)
+  public ModelAndView publicityInfo(@PathVariable(name = "id") Long id, ModelMap model) {
+
+    try{
+      PublicityEntity publicityEntity = publicityService.getById(id);
+      model.addAttribute("publicityId", publicityEntity.getId());
+      model.addAttribute("publicityTitle", publicityEntity.getTitle());
+      model.addAttribute("publicityContent", publicityEntity.getContent());
+      model.addAttribute("publisherName", publicityEntity.getPublisherEntity().getName());
+      model.addAttribute("publisherEmail", publicityEntity.getPublisherEntity().getEmail());
+      model.addAttribute("authorEmail", publicityEntity.getUserEntity().getEmail());
+      model.addAttribute("authorFirstname", publicityEntity.getUserEntity().getFirstName());
+      model.addAttribute("authorLastname", publicityEntity.getUserEntity().getLastName());
+      
+    }catch(Exception e){
+      log.error(e);
+      return new ModelAndView("redirect:/home/publicities", model);
+    }
+
+    return new ModelAndView("pages/home/publicity-info", model);
   }
   
   @RequestMapping(value = { "/home/publicities/add" }, method = RequestMethod.POST)

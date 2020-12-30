@@ -39,7 +39,7 @@
           <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item">
             <a class="nav-link" th:href="@{/home/publishers}">Companii editori</a>
           </li>
-          <li class="nav-item">
+          <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item">
             <a class="nav-link " th:href="@{/home/publicities}">Publicități</a>
           </li>
          

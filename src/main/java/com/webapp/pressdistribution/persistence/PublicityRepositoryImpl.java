@@ -20,7 +20,9 @@ public class PublicityRepositoryImpl implements PublicityRepository {
 
   @Override
   public List<PublicityEntity> findAll() {
-    final String hibernateQuery = "SELECT p FROM PublicityEntity p "
+    final String hibernateQuery = " SELECT new "+
+    " com.webapp.pressdistribution.domain.entity.PublicityEntity "+
+    " (p.id, p.title, p.content, p.filename) FROM PublicityEntity p "
       + " ORDER BY p.id DESC ";
 
     List<PublicityEntity> piblicities = entityManager

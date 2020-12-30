@@ -10,13 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "publicity")
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PublicityEntity {
 
   @Id
@@ -41,4 +45,12 @@ public class PublicityEntity {
   
   @Column(name="image_filename")
   private String filename;
+
+  public PublicityEntity (Long id, String title,String content, String filename){
+    this.id = id;
+    this.title = title;
+    this.content = content;
+    this.filename = filename;
+  }
+  
 }

@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/_mainLayout :: layout( ~{::section#body} )}">
+
+<section id="body">
+  <div class="row justify-content-center  w-100 p-3">
+    <div class="col-md-10">
+      <div class="card border">
+        <h4 class="card-header text-center">Informație despre publicitate</h4>
+        <div class="card-body">
+          <div class="mb-4 mt-4">
+            <img th:src="@{/api/publicityImage?publicityId=}+${publicityId}" style="width: 200px; height: 200px;" alt="">
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Titlu: <b th:text="${publicityTitle}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Titlu editurii: <b th:text="${publisherName}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Email editurii: <b th:text="${publisherEmail}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Email autor: <b th:text="${authorEmail}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Nume autor: <b th:text="${authorLastname}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Prenume autor: <b th:text="${authorFirstname}"></b></label>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label"><b>Conținut: </b></label>
+            <p th:text="${publicityContent}"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
