@@ -41,6 +41,7 @@ public class PublisherServiceImpl implements PublisherService {
       registerPublisherDto.setEmail(a.getEmail());
       registerPublisherDto.setPhone(a.getPhone());
       registerPublisherDto.setName(a.getName());
+      registerPublisherDto.setAddress(a.getAddress());
       publishers.add(registerPublisherDto);
     });
 
